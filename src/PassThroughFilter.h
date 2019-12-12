@@ -3,6 +3,10 @@
  * @author Ibrahim Ertan Yýlmaz (ibrahimertanylmz@gmail.com)
  * @date December, 2019
  */
+
+#ifndef PASSTHROUGHFILTER_H
+#define PASSTHROUGHFILTER_H
+
 #include"PointCloud.h"
 class PassThroughFilter
 {
@@ -27,3 +31,5 @@ public:
 	void setlowerLimitZ(int zmin); //!sets minimum value for z
 
 };
+
+#endif PASSTHROUGHFILTER_H

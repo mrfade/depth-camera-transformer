@@ -4,6 +4,9 @@
  * @date December, 2019
  */
 
+#ifndef POINTCLOUD_H
+#define POINTCLOUD_H
+
 #include "Point.h"
 #include <vector>
 
@@ -11,7 +14,7 @@ class PointCloud
 {
 private:
 	std::vector<Point> points;
-	int pointNumber;
+	int pointNumber = 0;
 
 public:
 	PointCloud();
@@ -23,5 +26,7 @@ public:
 	int getPointNumber() const;
 
 	PointCloud operator+(const PointCloud &);
-	PointCloud operator=(const PointCloud &);
+	PointCloud& operator=(const PointCloud &);
 };
+
+#endif POINTCLOUD_H

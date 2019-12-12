@@ -4,6 +4,9 @@
  * @date December, 2019
  */
 
+#ifndef POINT_H
+#define POINT_H
+
 #include <cmath>
 
 class Point
@@ -25,3 +28,5 @@ public:
 	bool operator==(const Point &point);	//Compares two points coordinates if they are equal or not
 	double distance(const Point &);			//Calculates the distance between...
 };
+
+#endif POINT_H
