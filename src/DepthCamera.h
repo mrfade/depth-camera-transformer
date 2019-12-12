@@ -1,3 +1,8 @@
+/**
+ * @file DepthCamera.h
+ * @author Onur Nafi Güzel (ongguzel@gmail.com)
+ * @date December, 2019
+ */
 #pragma once
 #include<iostream>
 #include<string>
