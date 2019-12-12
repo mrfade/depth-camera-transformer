@@ -1,3 +1,8 @@
+/**
+ * @file RadiusOutlierFilter.h
+ * @author Ibrahim Ertan Yýlmaz (ibrahimertanylmz@gmail.com)
+ * @date December, 2019
+ */
 #include"PointCloud.h"
 
 class RadiusOutlierFilter
@@ -8,13 +13,13 @@ private:
 
 public:
 
-	RadiusOutlierFilter() //constructor
+	RadiusOutlierFilter() //!constructor
 	{
 		radius = 25;
 	}
 
-	void filter(PointCloud& points); //filter function for unnecessary points
+	void filter(PointCloud& points); //!filter function for unnecessary points
 
-	void setRadius(int rad); //sets radius value
+	void setRadius(int rad); //!sets radius value
 };
 
