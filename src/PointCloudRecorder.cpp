@@ -27,8 +27,11 @@ bool PointCloudRecorder::save(const PointCloud& pc) {
 
 	std::ofstream file(fileName);
 
-	if (file.is_open())
+	if (file.is_open()) {
 		for (int i = 0; i < pointNumber; i++)
-			file << points[i].get_x() << " " << points[i].get_y() << " " << points[i].get_z();
-
+			file << points[i].get_x() << " " << points[i].get_y() << " " << points[i].get_z() << "\n";
+		return true;
+	}
+	else
+		return false;
 }
