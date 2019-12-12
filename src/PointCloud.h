@@ -17,10 +17,11 @@ public:
 	PointCloud();
 
 	void addPoint(double, double, double);
+	void addPoint(Point);
 	void removePoint(int);
 	std::vector<Point> getPoints() const;
 	int getPointNumber() const;
 
-	PointCloud operator+(const PointCloud &points);
-	PointCloud operator=(const PointCloud &points);
+	PointCloud operator+(const PointCloud &);
+	PointCloud operator=(const PointCloud &);
 };

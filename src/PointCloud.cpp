@@ -10,6 +10,11 @@ void PointCloud::addPoint(double _x, double _y, double _z)
     points.push_back(pt);
 }
 
+void PointCloud::addPoint(Point p)
+{
+    points.push_back(p);
+}
+
 void PointCloud::removePoint(int index)
 {
     points.erase(points.begin() + index);
@@ -27,9 +32,13 @@ int PointCloud::getPointNumber() const
 
 PointCloud PointCloud::operator+(const PointCloud &p)
 {
+	PointCloud pc;
     std::vector<Point> pts = p.getPoints();
     for (int i = 0; i < pts.size(); i++)
-        points.push_back(pts.at(i));
+        pc.addPoint(pts.at(i));
+	for (int i = 0; i < points.size(); i++)
+        pc.addPoint(points.at(i));
+	return pc;
 }
 PointCloud PointCloud::operator=(const PointCloud &p)
 {
