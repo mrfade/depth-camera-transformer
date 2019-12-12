@@ -13,11 +13,13 @@ void PointCloud::addPoint(double _x, double _y, double _z)
 void PointCloud::addPoint(Point p)
 {
     points.push_back(p);
+	this->pointNumber++;
 }
 
 void PointCloud::removePoint(int index)
 {
     points.erase(points.begin() + index);
+	this->pointNumber--;
 }
 
 std::vector<Point> PointCloud::getPoints() const
@@ -40,8 +42,9 @@ PointCloud PointCloud::operator+(const PointCloud &p)
         pc.addPoint(points.at(i));
 	return pc;
 }
-PointCloud PointCloud::operator=(const PointCloud &p)
+PointCloud& PointCloud::operator=(const PointCloud &p)
 {
     points = p.getPoints();
     pointNumber = p.getPointNumber();
+	return *(this);
 }
