@@ -4,6 +4,9 @@
  * @date December, 2019
  */
 
+#ifndef TRANSFORM_H
+#define TRANSFORM_H
+
 class Transform
 {
 private:
@@ -14,6 +17,8 @@ private:
 public:
     Transform();
     ~Transform();
-    void setRotation(double[3]);
-    void setTranslation(double[3]);
+    void setRotation(double[]);
+    void setTranslation(double[]);
 };
+
+#endif TRANSFORM_H
