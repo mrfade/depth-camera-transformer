@@ -8,6 +8,7 @@ void PointCloud::addPoint(double _x, double _y, double _z)
 {
     Point pt(_x, _y, _z);
     points.push_back(pt);
+	this->pointNumber++;
 }
 
 void PointCloud::addPoint(Point p)
@@ -16,9 +17,9 @@ void PointCloud::addPoint(Point p)
 	this->pointNumber++;
 }
 
-void PointCloud::removePoint(int index)
+void PointCloud::removePoint(Point p)
 {
-    points.erase(points.begin() + index);
+	points.erase(std::remove(points.begin(), points.end(), p), points.end());
 	this->pointNumber--;
 }
 

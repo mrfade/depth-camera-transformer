@@ -9,6 +9,7 @@
 
 #include "Point.h"
 #include <vector>
+#include <algorithm>
 
 class PointCloud
 {
@@ -22,6 +23,7 @@ public:
 	void addPoint(double, double, double);
 	void addPoint(Point);
 	void removePoint(int);
+	void removePoint(Point);
 	std::vector<Point> getPoints() const;
 	int getPointNumber() const;
 
