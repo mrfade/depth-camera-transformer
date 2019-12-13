@@ -4,6 +4,10 @@ Point::Point() : x(0.0), y(0.0), z(0.0) {} //NO-ARG (Default) constructor
 
 Point::Point(double _x, double _y, double _z) : x(_x), y(_y), z(_z) {} //Overloaded constructor
 
+Point::~Point()
+{
+}
+
 void Point::set_x(double _x) //Sets a value for x coordinate
 {
 	x = _x;

@@ -19,6 +19,7 @@ public:
 	//member methods
 	Point();								//NO-ARG (Default) constructor
 	Point(double _x, double _y, double _z); //Overloaded constructor
+	~Point();
 	void set_x(double _x);					//Sets a value for x coordinate
 	double get_x() const;					//Gets the x coordinate
 	void set_y(double _y);					//Sets a value for y coordinate
