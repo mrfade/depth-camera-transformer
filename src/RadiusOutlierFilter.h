@@ -17,14 +17,11 @@ private:
 
 public:
 
-	RadiusOutlierFilter() //!constructor
-	{
-		radius = 25;
-	}
+	RadiusOutlierFilter(); //!constructor
 
 	void filter(PointCloud& points); //!filter function for unnecessary points
 
-	void setRadius(int rad); //!sets radius value
+	void setRadius(double rad); //!sets radius value
 };
 
 #endif RADIUSOUTLIERFILTER_H
