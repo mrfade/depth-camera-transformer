@@ -7,6 +7,12 @@
 #ifndef TRANSFORM_H
 #define TRANSFORM_H
 
+#define PI 3.14159265359
+
+#include <cmath>
+#include "Point.h"
+#include "PointCloud.h"
+
 class Transform
 {
 private:
@@ -15,10 +21,13 @@ private:
     double transMatrix[4][4];
 
 public:
-    Transform();
-    ~Transform();
-    void setRotation(double[]);
-    void setTranslation(double[]);
+	Transform();
+	~Transform();
+	void initialize();
+	void setRotation(double[]);
+	void setTranslation(double[]);
+	Point doTransform(Point);
+	PointCloud doTransform(PointCloud);
 };
 
 #endif TRANSFORM_H
