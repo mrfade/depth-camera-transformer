@@ -4,6 +4,7 @@
 #include "PassThroughFilter.h"
 #include "RadiusOutlierFilter.h"
 #include "PointCloudRecorder.h"
+#include "Transform.h"
 
 using namespace std;
 
@@ -42,6 +43,23 @@ int main()
 	filter2.filter(pc2);
 
 	// TRANSFORM
+	Transform tr1, tr2;
+
+	double angles1[3] = {0, 0, -90};
+	double angles2[3] = {0, 0, 90};
+	double trans1[3] = {100, 500, 50};
+	double trans2[3] = {550, 150, 50};
+
+	tr1.setRotation(angles1);
+	tr1.setTranslation(trans1);
+	tr1.initialize();
+
+	tr2.setRotation(angles2);
+	tr2.setTranslation(trans2);
+	tr2.initialize();
+
+	pc1 = tr1.doTransform(pc1);
+	pc2 = tr2.doTransform(pc2);
 
 	PointCloud pc3;
 	pc3 = pc1 + pc2;
