@@ -23,12 +23,12 @@ private:
 public:
 
 	void filter(PointCloud& points); //!filter function for unnecessary points
-	void setupperLimitX(int xmax); //!sets maximum value for x
-	void setupperLimitY(int ymax); //!sets maximum value for y 
-	void setupperLimitZ(int zmax); //!sets maximum value for z
-	void setlowerLimitX(int xmin); //!sets minimum value for x
-	void setlowerLimitY(int ymin); //!sets minimum value for y
-	void setlowerLimitZ(int zmin); //!sets minimum value for z
+	void setupperLimitX(double xmax); //!sets maximum value for x
+	void setupperLimitY(double ymax); //!sets maximum value for y 
+	void setupperLimitZ(double zmax); //!sets maximum value for z
+	void setlowerLimitX(double xmin); //!sets minimum value for x
+	void setlowerLimitY(double ymin); //!sets minimum value for y
+	void setlowerLimitZ(double zmin); //!sets minimum value for z
 
 };
 

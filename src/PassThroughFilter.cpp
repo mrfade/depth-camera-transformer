@@ -6,8 +6,8 @@
 void PassThroughFilter::filter(PointCloud& points)
 {
 	std::vector <Point> point = points.getPoints(); //!keeps points in a vector
-	int i;
-	for (i = 0; i < points.getPointNumber(); i++)
+	int i,j= points.getPointNumber();
+	for (i = 0; i < j; i++)
 	{
 		if (point[i].get_x() > upperLimitX || point[i].get_x() < lowerLimitX || point[i].get_y() > upperLimitY || point[i].get_y() < lowerLimitY || point[i].get_z() > upperLimitZ || point[i].get_z() < lowerLimitZ)
 		{
@@ -16,28 +16,28 @@ void PassThroughFilter::filter(PointCloud& points)
 	}
 }
 
-void PassThroughFilter::setupperLimitX(int xmax)
+void PassThroughFilter::setupperLimitX(double xmax)
 {
 	upperLimitX = xmax;
 }
-void PassThroughFilter::setupperLimitY(int ymax)
+void PassThroughFilter::setupperLimitY(double ymax)
 {
 	upperLimitY = ymax;
 }
-void PassThroughFilter::setupperLimitZ(int zmax)
+void PassThroughFilter::setupperLimitZ(double zmax)
 {
 	upperLimitZ = zmax;
 }
-void PassThroughFilter::setlowerLimitX(int xmin)
+void PassThroughFilter::setlowerLimitX(double xmin)
 {
 	lowerLimitX = xmin;
 }
-void PassThroughFilter::setlowerLimitY(int ymin)
+void PassThroughFilter::setlowerLimitY(double ymin)
 {
 	lowerLimitY = ymin;
 }
-void PassThroughFilter::setlowerLimitZ(int zmin)
+void PassThroughFilter::setlowerLimitZ(double zmin)
 {
-	upperLimitZ = zmin;
+	lowerLimitZ = zmin;
 }
 
