@@ -1,0 +1,5 @@
+<map id="PointCloudRecorder::save" name="PointCloudRecorder::save">
+<area shape="rect" id="node1" title="Saves the PointCloud to the given file." alt="" coords="5,23,143,65"/>
+<area shape="rect" id="node2" href="$class_point_cloud.html#af4c946920d2d9337dd5c2802c7229108" title=" " alt="" coords="191,5,377,32"/>
+<area shape="rect" id="node3" href="$class_point_cloud.html#ababeb01c9c9fe1b62bb25a1321b815a3" title=" " alt="" coords="210,56,358,83"/>
+</map>
