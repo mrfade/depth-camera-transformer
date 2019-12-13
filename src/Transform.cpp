@@ -1,26 +1,38 @@
 #include "Transform.h"
 
+//! Default Constructor
 Transform::Transform()
 {
 }
 
+//! Default Destructor
 Transform::~Transform()
 {
 }
 
+/*!
+	\param ang an array that stores angles
+*/
 void Transform::setRotation(double ang[])
 {
     for (int i = 0; i < 3; i++)
         this->angles[i] = ang[i];
 }
 
+/*!
+	\param tr an array that stores coordinates for translation
+*/
 void Transform::setTranslation(double tr[])
 {
     for (int i = 0; i < 3; i++)
         this->trans[i] = tr[i];
 }
 
-void Transform::initialize() {
+/*!
+	No param, Initializes the transMatrix
+*/
+void Transform::initialize()
+{
 
 	double a = angles[2] * PI / 180.0;
 	double b = angles[1] * PI / 180.0;
@@ -51,7 +63,12 @@ void Transform::initialize() {
 	transMatrix[3][3] = 1;
 }
 
-Point Transform::doTransform(Point p) {
+/*!
+	\param p an Point
+	\return The translated Point
+*/
+Point Transform::doTransform(Point p)
+{
 	double pa[4], pb[4];
 
 	for (int i = 0; i < 4; i++)
@@ -69,7 +86,12 @@ Point Transform::doTransform(Point p) {
 	return Point(pa[0], pa[1], pa[2]);
 }
 
-PointCloud Transform::doTransform(PointCloud pc) {
+/*!
+	\param pc an PointCloud
+	\return The translated PointCloud
+*/
+PointCloud Transform::doTransform(PointCloud pc)
+{
 	PointCloud pcl;
 
 	std::vector <Point> points = pc.getPoints();
