@@ -11,7 +11,7 @@ void PassThroughFilter::filter(PointCloud& points)
 	{
 		if (point[i].get_x() > upperLimitX || point[i].get_x() < lowerLimitX || point[i].get_y() > upperLimitY || point[i].get_y() < lowerLimitY || point[i].get_z() > upperLimitZ || point[i].get_z() < lowerLimitZ)
 		{
-			points.removePoint(i); //!checks if the x,y,z values are bigger than upper limits or smaller than lower limits and deletes unnecessary points  
+			points.removePoint(point.at(i)); //!checks if the x,y,z values are bigger than upper limits or smaller than lower limits and deletes unnecessary points  
 		}
 	}
 }
