@@ -41,5 +41,5 @@ bool Point::operator==(const Point &point) //Compares two points coordinates if 
 
 double Point::distance(const Point &point)
 {
-	return pow((pow(point.get_x() - x, 2) + pow(point.get_y() - y, 2) + pow(point.get_z() - z, 2)), 1 / 2);
+	return pow((pow(point.get_x() - x, 2) + pow(point.get_y() - y, 2) + pow(point.get_z() - z, 2)), 1.0 / 2.0);
 }
