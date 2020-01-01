@@ -1,22 +1,25 @@
 /**
  * @file DepthCamera.h
- * @author Onur Nafi Güzel (ongguzel@gmail.com)
+ * @author Onur Nafi Gï¿½zel (ongguzel@gmail.com)
  * @date December, 2019
+ * @edited_by Ersan Tzampaz Chatip (hatipersan@gmail.com)
  */
 #pragma once
 #include<iostream>
 #include<string>
 #include"PointCloud.h"
 #include"Point.h"
+#include "PointCloudGenerator.h"
+
 using namespace std;
-class DepthCamera // Clas adý
+class DepthCamera :public PointCloudGenerator
 {
 private:
-	string fileName; // dosya adý tanýmlanýyor
+	string fileName;
 public:
-	PointCloud Capture(); // Fonksiyon çaðýrýlýyor
-	void setfileName(string fName); // Dosya adý atanýyor
-	string getfileName(); // Dosya adý döndürülüyor
+	PointCloud Capture(); //! Fonksiyon ï¿½aï¿½ï¿½rï¿½lï¿½yor
+	void setfileName(string fName); //! Dosya adï¿½ atanï¿½yor
+	string getfileName(); //! Dosya adï¿½ dï¿½ndï¿½rï¿½lï¿½yor
+	PointCloud captureFor(); //! Get, filter and transform pointcloud
 };
-
 
