@@ -10,6 +10,7 @@
  //! PI number
 #define PI 3.14159265359
 
+#include <Eigen/Dense>
 #include <cmath>
 #include "Point.h"
 #include "PointCloud.h"
@@ -21,11 +22,11 @@ class Transform
 {
 private:
 	//! Rotation angles
-    double angles[3];
+    Eigen::Vector3d angles;
 	//! Translation coordinates
-    double trans[3];
+	Eigen::Vector3d trans;
 	//! Matrix for transform
-    double transMatrix[4][4];
+	Eigen::Matrix4d transMatrix;
 
 public:
 	//! Constructor
@@ -36,8 +37,12 @@ public:
 	void initialize();
 	//! Sets the rotation angles
 	void setRotation(double[]);
+	//! Sets the rotation angles
+	void setRotation(Eigen::Vector3d);
 	//! Sets the translation coordinates
 	void setTranslation(double[]);
+	//! Sets the translation coordinates
+	void setTranslation(Eigen::Vector3d);
 	//! Does the transform for one point
 	Point doTransform(Point);
 	//! Does the transform for the PointCloud
