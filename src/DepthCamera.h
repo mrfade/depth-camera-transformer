@@ -17,7 +17,7 @@ class DepthCamera :public PointCloudGenerator
 private:
 	string fileName;
 public:
-	PointCloud Capture(); //! Fonksiyon �a��r�l�yor
+	PointCloud capture(); //! Fonksiyon �a��r�l�yor
 	void setfileName(string fName); //! Dosya ad� atan�yor
 	string getfileName(); //! Dosya ad� d�nd�r�l�yor
 	PointCloud captureFor(); //! Get, filter and transform pointcloud

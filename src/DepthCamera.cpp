@@ -4,7 +4,7 @@
 using namespace std;
 
 //! reads files without transforming
-PointCloud DepthCamera :: Capture() { 
+PointCloud DepthCamera :: capture() { 
 	PointCloud points;
 	double x, y, z;
 	ifstream file;
