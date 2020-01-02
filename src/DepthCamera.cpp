@@ -61,7 +61,7 @@ PointCloud DepthCamera::captureFor() {
     }
 
     //! filters out
-    filterpipe.filterout(points);
+    filterpipe->filterOut(points);
 
     //! set Tranlation vector
     transform.setTranslation();
