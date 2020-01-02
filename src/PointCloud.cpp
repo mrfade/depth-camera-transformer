@@ -23,7 +23,7 @@ void PointCloud::removePoint(Point p)
 	this->pointNumber--;
 }
 
-std::vector<Point> PointCloud::getPoints() const
+std::list<Point> PointCloud::getPoints() const
 {
     return points;
 }
@@ -36,7 +36,7 @@ int PointCloud::getPointNumber() const
 PointCloud PointCloud::operator+(const PointCloud &p)
 {
 	PointCloud pc;
-    std::vector<Point> pts = p.getPoints();
+    std::list<Point> pts = p.getPoints();
     for (int i = 0; i < pts.size(); i++)
         pc.addPoint(pts.at(i));
 	for (int i = 0; i < points.size(); i++)
