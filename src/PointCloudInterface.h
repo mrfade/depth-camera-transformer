@@ -1,3 +1,8 @@
+/**
+ * @file PointCloudInterface.h
+ * @author Nora Iseni
+ * @date January, 2020
+ */
 #pragma once
 #include"PointCloud.h"
 #include"PointCloudRecorder.h"
