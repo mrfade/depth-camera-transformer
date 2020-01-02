@@ -3,7 +3,8 @@
 #include"PointCloud.h"
 #include"Point.h"
 
-RadiusOutlierFilter::RadiusOutlierFilter() {
+RadiusOutlierFilter::RadiusOutlierFilter()
+{
 }
 
 void RadiusOutlierFilter::filter(PointCloud& points)
@@ -22,7 +23,7 @@ void RadiusOutlierFilter::filter(PointCloud& points)
 				{
 					sayac++; //!even if only one point's distance is smaller than radius, the point won't be deleted. 
 				}
-				
+
 			}
 		}
 		if (sayac == 0)

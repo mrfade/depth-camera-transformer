@@ -1,14 +1,15 @@
 /**
  * @file PassThrougFilter.h
  * @author Ibrahim Ertan Yýlmaz (ibrahimertanylmz@gmail.com)
- * @date December, 2019
+ * @date January, 2020
  */
 
 #ifndef PASSTHROUGHFILTER_H
 #define PASSTHROUGHFILTER_H
 
 #include"PointCloud.h"
-class PassThroughFilter
+#include"PointCloudFilter.h"
+class PassThroughFilter : public PointCloudFilter
 {
 private:
 

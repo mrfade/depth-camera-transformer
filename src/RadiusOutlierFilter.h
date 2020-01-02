@@ -1,15 +1,15 @@
 /**
  * @file RadiusOutlierFilter.h
  * @author Ibrahim Ertan Yýlmaz (ibrahimertanylmz@gmail.com)
- * @date December, 2019
+ * @date January, 2020
  */
 
 #ifndef RADIUSOUTLIERFILTER_H
 #define RADIUSOUTLIERFILTER_H
 
 #include"PointCloud.h"
-
-class RadiusOutlierFilter
+#include"PointCloudFilter.h"
+class RadiusOutlierFilter : public PointCloudFilter
 {
 private:
 

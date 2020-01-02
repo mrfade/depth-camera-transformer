@@ -6,7 +6,7 @@
 void PassThroughFilter::filter(PointCloud& points)
 {
 	std::vector <Point> point = points.getPoints(); //!keeps points in a vector
-	int i,j= points.getPointNumber();
+	int i, j = points.getPointNumber();
 	for (i = 0; i < j; i++)
 	{
 		if (point[i].get_x() > upperLimitX || point[i].get_x() < lowerLimitX || point[i].get_y() > upperLimitY || point[i].get_y() < lowerLimitY || point[i].get_z() > upperLimitZ || point[i].get_z() < lowerLimitZ)
