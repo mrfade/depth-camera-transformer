@@ -40,14 +40,14 @@ std::string PointCloudRecorder::getFileName()
 */
 bool PointCloudRecorder::save(const PointCloud& pc)
 {
-	std::vector<Point> points = pc.getPoints();
-	int pointNumber = pc.getPointNumber();
+	std::list<Point> points = pc.getPoints();
+	std::list<Point> ::iterator it;
 
 	std::ofstream file(fileName);
 
 	if (file.is_open()) {
-		for (int i = 0; i < pointNumber; i++)
-			file << points[i].get_x() << " " << points[i].get_y() << " " << points[i].get_z() << "\n";
+		for (it = points.begin(); it != points.end(); it++)
+			file << it->get_x() << " " << it->get_y() << " " << it->get_z() << "\n";
 		return true;
 	}
 	else

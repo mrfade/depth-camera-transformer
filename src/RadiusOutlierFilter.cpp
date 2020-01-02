@@ -9,17 +9,17 @@ RadiusOutlierFilter::RadiusOutlierFilter()
 
 void RadiusOutlierFilter::filter(PointCloud& points)
 {
-	std::vector <Point> point = points.getPoints(); //!keep points in a vector
+	std::list <Point> point = points.getPoints(); //!keep points in a vector
+	std::list <Point> ::iterator it1, it2;
 
 	int sayac = 0;
-	int count = point.size();
-	for (int i = 0; i < count; i++)
+	for (it1 = point.begin(); it1 != point.end(); it1++)
 	{
-		for (int k = 0; k < count; k++)
+		for (it2 = point.begin(); it2 != point.end(); it2++)
 		{
-			if (k != i)
+			if (it2 != it1)
 			{
-				if (point.at(i).distance(point.at(k)) < radius)
+				if (it1->distance(*it2) < radius)
 				{
 					sayac++; //!even if only one point's distance is smaller than radius, the point won't be deleted. 
 				}
@@ -28,7 +28,7 @@ void RadiusOutlierFilter::filter(PointCloud& points)
 		}
 		if (sayac == 0)
 		{
-			points.removePoint(point.at(i));//!else the point will be deleted.
+			points.removePoint(*it1);//!else the point will be deleted.
 		}
 		sayac = 0;
 	}

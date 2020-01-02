@@ -8,7 +8,7 @@
 #define POINTCLOUDRECORDER_H
 
 #include <string>
-#include <vector>
+#include <list>
 #include <fstream>
 #include "Point.h"
 #include "PointCloud.h"
