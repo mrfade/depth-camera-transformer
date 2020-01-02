@@ -2,19 +2,21 @@
  * @file PointCloud.h
  * @author Nora Iseni
  * @date December, 2019
+ * @edited_by Onur Nafi Guzel (ongguzel@gmail.com)
  */
+
 
 #ifndef POINTCLOUD_H
 #define POINTCLOUD_H
 
 #include "Point.h"
-#include <vector>
+#include <list>
 #include <algorithm>
 
 class PointCloud
 {
 private:
-	std::vector<Point> points;
+	std::list<Point> points;
 	int pointNumber = 0;
 
 public:
@@ -23,7 +25,7 @@ public:
 	void addPoint(double, double, double);
 	void addPoint(Point);
 	void removePoint(Point);
-	std::vector<Point> getPoints() const;
+	std::list<Point> getPoints() const;
 	int getPointNumber() const;
 
 	PointCloud operator+(const PointCloud &);
