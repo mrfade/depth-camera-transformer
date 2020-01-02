@@ -37,10 +37,11 @@ PointCloud PointCloud::operator+(const PointCloud &p)
 {
 	PointCloud pc;
     std::list<Point> pts = p.getPoints();
-    for (int i = 0; i < pts.size(); i++)
-        pc.addPoint(pts.at(i));
-	for (int i = 0; i < points.size(); i++)
-        pc.addPoint(points.at(i));
+	std::list <Point> ::iterator it;
+	for (it = pts.begin(); it != pts.end(); it++)
+        pc.addPoint(*it);
+	for (it = points.begin(); it != points.end(); it++)
+        pc.addPoint(*it);
 	return pc;
 }
 PointCloud& PointCloud::operator=(const PointCloud &p)

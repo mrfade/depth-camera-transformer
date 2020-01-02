@@ -1,17 +1,17 @@
 #include"PassThroughFilter.h"
-#include<vector>
+#include<list>
 #include"PointCloud.h"
 #include"Point.h"
 
 void PassThroughFilter::filter(PointCloud& points)
 {
-	std::vector <Point> point = points.getPoints(); //!keeps points in a vector
-	int i, j = points.getPointNumber();
-	for (i = 0; i < j; i++)
+	std::list <Point> point = points.getPoints(); //!keeps points in a list
+	std::list <Point> ::iterator it;
+	for (it = point.begin(); it != point.end(); it++)
 	{
-		if (point[i].get_x() > upperLimitX || point[i].get_x() < lowerLimitX || point[i].get_y() > upperLimitY || point[i].get_y() < lowerLimitY || point[i].get_z() > upperLimitZ || point[i].get_z() < lowerLimitZ)
+		if (it->get_x() > upperLimitX || it->get_x() < lowerLimitX || it->get_y() > upperLimitY || it->get_y() < lowerLimitY || it->get_z() > upperLimitZ || it->get_z() < lowerLimitZ)
 		{
-			points.removePoint(point.at(i)); //!checks if the x,y,z values are bigger than upper limits or smaller than lower limits and deletes unnecessary points  
+			points.removePoint(*it); //!checks if the x,y,z values are bigger than upper limits or smaller than lower limits and deletes unnecessary points  
 		}
 	}
 }
