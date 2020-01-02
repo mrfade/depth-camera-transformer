@@ -12,7 +12,7 @@ void PointCloudInterface::setRecorder(PointCloudRecorder* rec)
 
 bool PointCloudInterface::generate()
 {
-	PointCloud tmp(0);
+	PointCloud tmp;
     for(int i=0;i<generators.size();i++)
     	{
 		    tmp = generators[i]->captureFor();

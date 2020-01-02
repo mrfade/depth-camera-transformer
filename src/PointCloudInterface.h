@@ -7,7 +7,7 @@ class PointCloudInterface
 {
 	PointCloud pointCloud;
 	PointCloud patch;
-	vector<PointCloudGenerator*> generators;
+	std::vector<PointCloudGenerator*> generators;
 	PointCloudRecorder* recorder;
 
 public:
