@@ -22,7 +22,9 @@
 #include "Transform.h"
 #include "FilterPipe.h"
 
-class PointCloudGenerator {
+class PointCloudGenerator
+{
+protected:
     Transform transform;
     FilterPipe *filterpipe;
 public:
