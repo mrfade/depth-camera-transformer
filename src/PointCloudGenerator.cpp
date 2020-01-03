@@ -6,7 +6,7 @@ PointCloudGenerator::PointCloudGenerator() {}
 //! destructor
 PointCloudGenerator::~PointCloudGenerator() {}
 
-//! sets filer
+//! sets filter
 void PointCloudGenerator::setFilterPipe(FilterPipe *filter) {
     filterpipe = filter;
 }
