@@ -24,7 +24,7 @@ void Transform::setRotation(double ang[])
 */
 void Transform::setRotation(Eigen::Vector3d ang)
 {
-	this->angles << ang.x, ang.y, ang.z;
+	this->angles = ang;
 }
 
 /*!
@@ -41,7 +41,7 @@ void Transform::setTranslation(double tr[])
 */
 void Transform::setTranslation(Eigen::Vector3d tr)
 {
-	this->trans << tr.x, tr.y, tr.z;
+	this->trans = tr;
 }
 
 /*!
@@ -50,9 +50,9 @@ void Transform::setTranslation(Eigen::Vector3d tr)
 void Transform::initialize()
 {
 
-	double a = angles.z * PI / 180.0;
-	double b = angles.y * PI / 180.0;
-	double y = angles.x * PI / 180.0;
+	double a = angles.z() * PI / 180.0;
+	double b = angles.y() * PI / 180.0;
+	double y = angles.x() * PI / 180.0;
 
 	transMatrix(0, 0) = cos(a) * cos(b);
 	transMatrix(0, 1) = cos(a) * sin(b) * sin(y) - sin(a) * cos(y);
@@ -64,9 +64,9 @@ void Transform::initialize()
 	transMatrix(2, 1) = cos(b) * sin(y);
 	transMatrix(2, 2) = cos(b) * cos(y);
 
-	transMatrix(0, 3) = trans.x;
-	transMatrix(1, 3) = trans.y;
-	transMatrix(2, 3) = trans.z;
+	transMatrix(0, 3) = trans.x();
+	transMatrix(1, 3) = trans.y();
+	transMatrix(2, 3) = trans.z();
 	transMatrix(3, 0) = 0;
 	transMatrix(3, 1) = 0;
 	transMatrix(3, 2) = 0;
@@ -79,7 +79,7 @@ void Transform::initialize()
 */
 Point Transform::doTransform(Point p)
 {
-	double pa[4], pb[4];
+	Eigen::Vector4d pa, pb;
 
 	for (int i = 0; i < 4; i++)
 		pa[i] = 0.0;
