@@ -25,7 +25,7 @@
 class PointCloudGenerator
 {
 protected:
-    Transform transform;
+    Transform *transform;
     FilterPipe *filterpipe;
 public:
     //!constructor
@@ -41,6 +41,10 @@ public:
      * @param FilterPipe
      **/
     void setFilterPipe(FilterPipe *);
+	/**
+     * @param Transform
+     **/
+    void setTransform(Transform *);
 
 };
 
