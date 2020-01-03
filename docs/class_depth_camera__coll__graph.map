@@ -1,0 +1,6 @@
+<map id="DepthCamera" name="DepthCamera">
+<area shape="rect" id="node1" title=" " alt="" coords="44,171,145,197"/>
+<area shape="rect" id="node2" href="$class_point_cloud_generator.html" title=" " alt="" coords="23,95,166,121"/>
+<area shape="rect" id="node3" href="$class_filter_pipe.html" title=" " alt="" coords="5,5,83,32"/>
+<area shape="rect" id="node4" href="$class_transform.html" title=" " alt="" coords="107,5,186,32"/>
+</map>
