@@ -1,35 +1,32 @@
-#include <iostream>
+#include <Eigen/Dense>
 #include "DepthCamera.h"
 #include "PointCloud.h"
 #include "PassThroughFilter.h"
 #include "RadiusOutlierFilter.h"
 #include "PointCloudRecorder.h"
+#include "PointCloudInterface.h"
 #include "Transform.h"
 
 using namespace std;
 
 int main()
 {
+
+	//! Init Recorder
+	PointCloudRecorder pclRecorder;
+	//! Set the fileName
+	pclRecorder.setFileName("cloud.txt");
+
 	//! Init camera
 	DepthCamera camera1, camera2;
 	//! Set fileNames
 	camera1.setfileName("camera1.txt");
 	camera2.setfileName("camera2.txt");
 
-	//! Init PointClouds
-	PointCloud pc1, pc2;
-	//! Take data from camera
-	pc1 = camera1.Capture();
-	pc2 = camera2.Capture();
-
 	//! Init RadiusFilter
 	RadiusOutlierFilter rof;
 	//! Set the radius
 	rof.setRadius(25.0);
-
-	//! Filter the data
-	rof.filter(pc1);
-	rof.filter(pc2);
 
 	//! Init ConstraitFilter
 	PassThroughFilter filter1, filter2;
@@ -49,18 +46,28 @@ int main()
 	filter2.setlowerLimitZ(-45.0);
 	filter2.setupperLimitZ(45.0);
 
-	//! Filter the data
-	filter1.filter(pc1);
-	filter2.filter(pc2);
+	//! Init FilterPipe
+	FilterPipe fp1, fp2;
+	//! Add filters
+	fp1.addFilter(&rof);
+	fp1.addFilter(&filter1);
+
+	//! Add filters
+	fp2.addFilter(&rof);
+	fp2.addFilter(&filter2);
+
+	//! Assign filters to DepthCameras
+	camera1.setFilterPipe(&fp1);
+	camera2.setFilterPipe(&fp2);
 
 	//! Init Transform
 	Transform tr1, tr2;
 
 	//! Declare the angles and coordinates for translation
-	double angles1[3] = {0, 0, -90};
-	double angles2[3] = {0, 0, 90};
-	double trans1[3] = {100, 500, 50};
-	double trans2[3] = {550, 150, 50};
+	Eigen::Vector3d angles1(0, 0, -90);
+	Eigen::Vector3d angles2(0, 0, 90);
+	Eigen::Vector3d trans1(100, 500, 50);
+	Eigen::Vector3d trans2(550, 150, 50);
 
 	//! Set data for Camera1
 	tr1.setRotation(angles1);
@@ -74,21 +81,23 @@ int main()
 	//! Initialize the transform matrix
 	tr2.initialize();
 
-	//! DO TRANSFORM
-	pc1 = tr1.doTransform(pc1);
-	pc2 = tr2.doTransform(pc2);
+	//! Assign transform object to DepthCameras
+	camera1.setTransform(&tr1);
+	camera2.setTransform(&tr2);
 
-	//! Merge the points to one PointCloud
-	PointCloud pc3;
-	pc3 = pc1 + pc2;
+	//! Init PointCloudInterfase
+	PointCloudInterface pci1;
+	//! Add generators
+	pci1.addGenerator(&camera1);
+	pci1.addGenerator(&camera2);
+	//! Set recorder
+	pci1.setRecorder(&pclRecorder);
 
-	//! Init the FileRecorder
-	PointCloudRecorder recorder;
-	//! Set output fileName
-	recorder.setFileName("cloud.txt");
+	//! Generate result
+	pci1.generate();
 
-	//! Save data
-	recorder.save(pc3);
+	//! Record result using given recorder
+	pci1.record();
 
 	//! EXIT
 	return 0;
