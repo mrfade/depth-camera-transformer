@@ -63,14 +63,8 @@ PointCloud DepthCamera::captureFor() {
     //! filters out
     filterpipe->filterOut(points);
 
-    //! set Tranlation vector
-    transform.setTranslation();
-    //! set rotation angles
-    transform.setRotation();
-    //! initialize them to matrix
-    transform.initialize();
     //! transform point cloud
-    transform.doTransform(points);
+    points = transform->doTransform(points);
 
 
     file.close();
