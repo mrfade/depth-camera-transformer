@@ -1,3 +1,3 @@
 # Depth Camera Transformer
 
-Documentation: [HERE](https://mrfade.github.io/oop-project/docs/index.html)
+Documentation: [HERE](https://mrfade.github.io/depth-camera-transformer/docs/index.html)
